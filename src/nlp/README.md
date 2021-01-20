@@ -53,4 +53,5 @@ As an hint we're given a PNG image of the ISA logo, in black and white:
 </div>
 
 There are symbols in the middle of the logo! not only that but they are Arabic letters that makes the word البقرة (Al-Baqarah) which translated to "the cow".
+A quick Google search brings us to the Al-Baqarah Surah, a collection of 286 verses from the Quran. We interpret the hint to mean that in fact, we are to find the line (verse) number from this particular Surah, that caused the embedding. This makes sense, since the model which was used is `bert-base-multilingual-uncased`, which among other languages, is also pre-trained on Arabic.
 
