@@ -46,12 +46,11 @@ As an hint we're given a PNG image of the ISA logo, in black and white:
     <img src="hint_-_nlp.png" width=400>
 </div>
 
- There doesn't seem to be anything interesting that is visible, and the words in the logo or related to them didn't give us the expected output, so we assumed that there might be some data *hidden* in the image, the art of hiding information in another medium is called steganography, it's a branch of cryptography and commonly appears in CTF (but not in this one), so we went through the well known techniques of hiding data from images and tried, such as checking for strings in the image's data, checking for embedded files and checking the LSB/MSB of the image, eventually we ran `stegsolve` on the image, which allows us to randomize the colors such that pixels with similar colors to the naked eye will seem different, and got the following:     
+There doesn't seem to be anything interesting visible in the image, and the words in the logo and the agency name didn't give us the expected output, so we assumed that there might be some data *hidden* in the image. The art of hiding information in another medium is called steganography, it's a branch of cryptography and commonly appears in CTF (but not in this one). We went through some of the well known techniques of hiding data from images, such as hiding strings in the image's data, embedding files and hiding information in the LSB/MSB of the image, eventually we ran `stegsolve` on the image, which allows us to randomize the colors such that pixels with similar colors to the naked eye will have different colors, and got the following:     
 
 <div align="center">
     <img src="hint_solved.bmp" width=400>
 </div>
 
-There are symbols in the middle of the logo! not only that but they are Arabic letters that makes the word البقرة (Al-Baqarah) which translated to "the cow".
-A quick Google search brings us to the Al-Baqarah Surah, a collection of 286 verses from the Quran. We interpret the hint to mean that in fact, we are to find the line (verse) number from this particular Surah, that caused the embedding. This makes sense, since the model which was used is `bert-base-multilingual-uncased`, which among other languages, is also pre-trained on Arabic.
+There are symbols in the middle of the logo! not only that but they are Arabic letters that makes the word البقرة (Al-Baqarah) which translates to "the cow".
 
